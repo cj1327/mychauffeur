@@ -52,3 +52,43 @@ The request body should be in JSON format and include the following fields:
 - `user` (object):
     - `email` (string): User's email address.
 - `token` (string): JWT Token
+
+## `/users/profile` Endpoint
+
+### Description
+
+Fetches the profile information of the authenticated user.
+
+### HTTP Method
+
+`GET`
+
+### Headers
+
+- `Authorization` (string, required): Bearer token for authentication.
+
+### Example Response
+
+- `user` (object):
+    - `fullname` (object):
+        - `firstname` (string): User's first name.
+        - `lastname` (string): User's last name.
+    - `email` (string): User's email address.
+
+## `/users/logout` Endpoint
+
+### Description
+
+Logs out the authenticated user by invalidating the current session token.
+
+### HTTP Method
+
+`GET`
+
+### Headers
+
+- `Authorization` (string, required): Bearer token for authentication.
+
+### Example Response
+
+- `message` (string): Confirmation message indicating successful logout.
