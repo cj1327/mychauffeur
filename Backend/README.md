@@ -132,3 +132,69 @@ The request body should be in JSON format and include the following fields:
         - `capacity` (integer): Vehicle capacity.
         - `vehicleType` (string): Type of vehicle.
 - `token` (String): JWT Token.
+
+## `/captains/login` Endpoint
+
+### Description
+
+Logs in an existing captain by validating the provided email and password
+
+### HTTP Method
+
+`POST`
+
+### Request Body
+
+- `email`: "john.doe@example.com", // (string, required) must be a valid email
+- `password`: "password123" // (string, required) minimum 6 characters
+
+### Example Response
+
+- `captain`: {
+        `email`: "john.doe@example.com"
+    },
+- `token`: "JWT_TOKEN_HERE" // (string) JWT Token
+## `/captains/profile` Endpoint
+
+### Description
+
+Fetches the profile information of the authenticated captain.
+
+### HTTP Method
+
+`GET`
+
+### Headers
+
+- `Authorization` (string, required): Bearer token for authentication.
+
+### Example Response
+
+- `captain` (object):
+    - `fullname` (object):
+        - `firstname` (string): Captain's first name.
+        - `lastname` (string): Captain's last name.
+    - `email` (string): Captain's email address.
+    - `vehicle` (object):
+        - `color` (string): Vehicle color.
+        - `plate` (string): Vehicle plate number.
+        - `capacity` (integer): Vehicle capacity.
+        - `vehicleType` (string): Type of vehicle.
+
+## `/captains/logout` Endpoint
+
+### Description
+
+Logs out the authenticated captain by invalidating the current session token.
+
+### HTTP Method
+
+`GET`
+
+### Headers
+
+- `Authorization` (string, required): Bearer token for authentication.
+
+### Example Response
+
+- `message` (string): Confirmation message indicating successful logout.
