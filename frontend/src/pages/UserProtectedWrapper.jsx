@@ -17,9 +17,9 @@ const UserProtectedWrapper = ({
             navigate('/login');
         }
 
-        axios.get(${import.meta.env.VITE_BASE_URL}/user/profile,{
+        axios.get(`${import.meta.env.VITE_BASE_URL}`/user/profile,{
             headers: {
-                Authorization: Bearer ${token}
+                Authorization: `Bearer ${token}`
             }
         }).then(response => {
             if (response.status === 200) {
